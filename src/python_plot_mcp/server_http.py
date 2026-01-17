@@ -15,8 +15,8 @@ import uvicorn
 # FastMCP 从 mcp.server.fastmcp 导入
 from mcp.server.fastmcp import FastMCP
 
-# 创建 MCP 服务器实例
-mcp = FastMCP("python-plot-mcp", instructions="Python 代码执行和 matplotlib 绘图工具")
+# 创建 MCP 服务器实例（监听 0.0.0.0 以支持 Docker 容器外部访问）
+mcp = FastMCP("python-plot-mcp", instructions="Python 代码执行和 matplotlib 绘图工具", host="0.0.0.0")
 
 # Python 预处理代码：配置 matplotlib 和重写 plt.show()
 _PRELUDE = r"""
