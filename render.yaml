@@ -1,0 +1,17 @@
+services:
+  # Web 服务配置
+  - type: web
+    name: python-plot-mcp
+    env: docker
+    region: oregon
+    plan: free
+    # 健康检查
+    healthCheckPath: /
+    # 自动部署
+    autoDeploy: true
+    # 环境变量
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: PYTHONUNBUFFERED
+        value: 1
